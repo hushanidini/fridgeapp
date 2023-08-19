@@ -1,0 +1,235 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.top-section {
+  background-color: #ffffff;
+  padding: 20px;
+  flex: 1;
+}
+@media (min-width: 768px) {
+  .top-section {
+    padding: 40px;
+  }
+}
+
+.bottom-section {
+  background-color: #f4faff;
+  padding: 20px;
+  flex: 3;
+}
+@media (min-width: 768px) {
+  .bottom-section {
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.header {
+  padding: 20px;
+  text-align: center;
+}
+.header .header-title {
+  margin: 0;
+  font-size: 36px;
+  color: #003a59;
+}
+.header .header-subtitle {
+  margin: 0;
+  font-size: 16px;
+  color: #728197;
+}
+@media (min-width: 768px) {
+  .header {
+    padding: 40px;
+  }
+  .header .header-title {
+    font-size: 32px;
+  }
+  .header .header-subtitle {
+    font-size: 18px;
+  }
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+.content-container .form-section {
+  width: 100%;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.content-container .item-section {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-top: 5%;
+}
+.content-container .item-section-content {
+  width: 100%;
+}
+.content-container .item-section-content p {
+  text-align: right;
+}
+.content-container .list-item {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: #ffffff;
+  min-height: 20vh;
+  padding: 10px;
+  margin-top: 15px;
+}
+.content-container .column1 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 20%;
+}
+.content-container .column3 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 20%;
+}
+.content-container .column3 .label {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 20px;
+}
+.content-container .column3 .label--expired {
+  background-color: rgb(247, 185, 185);
+  color: rgb(62, 5, 5);
+}
+.content-container .column3 .label--expiring-soon {
+  background-color: rgb(242, 242, 197);
+  color: #c19207;
+}
+.content-container .column3 .label--healthy {
+  background-color: rgba(205, 234, 211, 0.7411764706);
+  color: #28a745;
+}
+.content-container .column4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 5%;
+}
+.content-container .column4 .delete-icon {
+  font-size: 18px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.content-container .column4 .delete-icon--expired {
+  color: rgb(247, 185, 185);
+}
+.content-container .column4 .delete-icon--notexpired {
+  color: #728197;
+}
+.content-container .column2 {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 55%;
+}
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .content-container .item-section-content {
+    overflow-x: auto;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.form .form-field {
+  margin: 5px;
+  padding: 10px;
+}
+.form label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.form input[type=text],
+.form input[type=date] {
+  width: 90%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-top: 3px;
+}
+.form .error-message {
+  margin-top: 4px;
+  font-size: 14px;
+  color: rgb(243, 27, 27);
+}
+.form.error input {
+  border-color: rgb(243, 27, 27);
+}
+.form button {
+  width: 90%;
+  background-color: #00598d;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 20px;
+}
+@media (min-width: 768px) {
+  .form {
+    flex-direction: row;
+  }
+  .form .form-field {
+    flex: 1;
+    margin: 5px;
+  }
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  color: #003a59;
+}
+.loading-spinner .loading-dots {
+  font-size: 32px;
+  margin: 0;
+}
+.loading-spinner p {
+  font-size: 16px;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .loading-spinner p {
+    font-size: 14px;
+  }
+}/*# sourceMappingURL=main.css.map */
