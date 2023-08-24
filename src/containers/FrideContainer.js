@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchItemsStart, fetchItemsSuccess } from "../store/fridgeSlice";
 import { fetchItems } from "../utils/api";
