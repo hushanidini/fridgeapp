@@ -11,7 +11,6 @@ const schema = yup.object().shape({
 });
 
 const FriForm = (props) => {
-  const { setInsertedFrides, insertedFrides } = props;
   const dispatch = useDispatch();
 
   const {
@@ -32,7 +31,6 @@ const FriForm = (props) => {
     if (submitData) {
       dispatch(addFridgeItem(submitData)).then((res) => {
         if (res?.payload) {
-          setInsertedFrides([...insertedFrides, res?.payload]);
           alert("successfully added !.");
           reset();
         }

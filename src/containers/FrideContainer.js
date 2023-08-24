@@ -10,15 +10,12 @@ const FrideContainer = () => {
   const dispatch = useDispatch();
   const { items, loading } = useSelector((state) => state.fridge);
 
-  const [insertedFrides, setInsertedFrides] = useState(items);
-
   useEffect(() => {
     const fetchData = async () => {
       dispatch(fetchItemsStart()); // Start fetching, set loading to true
       try {
         const data = await fetchItems(); // Fetch data using your fetchItems function
         dispatch(fetchItemsSuccess(data)); // Update the store with fetched data
-        setInsertedFrides(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -36,10 +33,7 @@ const FrideContainer = () => {
       <div className='content-container'>
         <div className='form-section'>
           {/* form componet  */}
-          <FriForm
-            setInsertedFrides={setInsertedFrides}
-            insertedFrides={insertedFrides}
-          />
+          <FriForm />
         </div>
 
         {/* item list componet  */}
@@ -49,10 +43,10 @@ const FrideContainer = () => {
           <div className='item-section'>
             <div className='item-section-content'>
               <p>
-                <b>Total Items - {insertedFrides?.length}</b>
+                <b>Total Items - {items?.length}</b>
               </p>
 
-              {insertedFrides.map((item) => (
+              {items.map((item) => (
                 <ListItem key={item.id} item={item} />
               ))}
             </div>
