@@ -26,3 +26,20 @@ export const addItem = async (itemData) => {
     return error;
   }
 };
+
+export const deleteItem = async (itemId) => {
+  try {
+    const response = await fetch(`${API_URL}/${itemId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+

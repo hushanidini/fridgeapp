@@ -1,12 +1,21 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { deleteFridgeItem } from "../store/fridgeSlice";
 
 const ListItem = ({ item }) => {
+  const dispatch = useDispatch();
   const expiryDate = moment(item.expiry);
   const isExpiringSoon = expiryDate.diff(moment(), "days") <= 30;
   const isExpired = expiryDate.isBefore(moment());
+
+  const handleDelete = async () => {
+    if (window.confirm("Are you sure you want to delete this item?")) {
+      dispatch(deleteFridgeItem(item._id));
+    }
+  };
 
   return (
     <div className='list-item'>
@@ -26,15 +35,16 @@ const ListItem = ({ item }) => {
         )}
       </div>
       <div className='column4'>
-        {isExpired ? (
-          <div className='delete-icon delete-icon--expired'>
-            <FontAwesomeIcon icon={faTrash} />
-          </div>
-        ) : (
-          <div className='delete-icon delete-icon--notexpired'>
-            <FontAwesomeIcon icon={faTrash} />
-          </div>
-        )}
+        <div
+          className={
+            isExpired
+              ? "delete-icon delete-icon--expired"
+              : "delete-icon delete-icon--notexpired"
+          }
+          onClick={handleDelete}
+        >
+          <FontAwesomeIcon icon={faTrash} />
+        </div>
       </div>
     </div>
   );
